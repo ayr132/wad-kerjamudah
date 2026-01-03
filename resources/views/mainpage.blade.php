@@ -35,6 +35,7 @@
   </head>
 
   <body>
+    @yield('content')
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -726,7 +727,7 @@
                   <h1 class="font-light text-white">
                     <i class="mdi mdi-receipt"></i>
                   </h1>
-                  <h6 class="text-white">Forms</h6>
+                  <a href="{{ route('forms') }}">Forms</a>
                 </div>
               </div>
             </div>

@@ -15,3 +15,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/forms', function () {
+    return view('forms');
+})->name('forms');
