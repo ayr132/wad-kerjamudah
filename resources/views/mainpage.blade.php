@@ -779,6 +779,35 @@
           <!-- ============================================================== -->
           <!-- Sales chart -->
           <!-- ============================================================== -->
+           <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="card-title">Employee's Database</h4>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+    </tr>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>61</td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td>63</td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    </table>
+    </div>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
