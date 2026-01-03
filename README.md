@@ -1,9 +1,9 @@
 <p align="center"><a href="https://www.iium.edu.my/v2/" target="_blank"><img src="public/assets/images/Copy%20of%20IIUM_LOGO_ELEMENTS_TAWHIDIC_FULL_COLOUR-1536x205.png" width="600" alt="IIUM Logo"></a></p>
 
-<h1>KULLIYYAH OF INFORMATION AND COMMUNICATION TECHNOLOGY</h1>
-<h1>INFO 3305 WEB APPLICATION DEVELOPMENT</h1>
-<h2>SEMESTER 1 2025/2026</h2>
-<h2>SECTION 5</h2>
+<h1 align="center">KULLIYYAH OF INFORMATION AND COMMUNICATION TECHNOLOGY</h1>
+<h1 align="center">INFO 3305 WEB APPLICATION DEVELOPMENT</h1>
+<h2 align="center">SEMESTER 1 2025/2026</h2>
+<h2 align="center">SECTION 5</h2>
 
 <!-- <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
