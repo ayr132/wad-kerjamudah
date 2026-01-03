@@ -1,11 +1,16 @@
 <p align="center"><a href="https://www.iium.edu.my/v2/" target="_blank"><img src="public/assets/images/Copy%20of%20IIUM_LOGO_ELEMENTS_TAWHIDIC_FULL_COLOUR-1536x205.png" width="600" alt="IIUM Logo"></a></p>
 
-<p align="center">
+<h1>KULLIYYAH OF INFORMATION AND COMMUNICATION TECHNOLOGY</h1>
+<h1>INFO 3305 WEB APPLICATION DEVELOPMENT</h1>
+<h2>SEMESTER 1 2025/2026</h2>
+<h2>SECTION 5</h2>
+
+<!-- <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+</p> -->
 
 ## About Laravel
 
