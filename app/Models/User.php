@@ -16,6 +16,7 @@ class User extends Authenticatable
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
+
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
@@ -63,5 +64,32 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class)
+            ->withPivot('user_status')
+            ->withTimestamps();
+    }
+
+    public function ownedProjects()
+    {
+        return $this->hasMany(Project::class, 'owner_id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
+    }
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class);
     }
 }
