@@ -38,3 +38,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::post('/discussions', [DiscussionController::class, 'store'])->name('discussions.store');
         Route::delete('/discussions/{discussion}', [DiscussionController::class, 'destroy'])->name('discussions.destroy');
     });
+
+// Route::get('/login', function () {
+//     return redirect('/'); // Redirect to the homepage or another page
+//         })->name('login');
