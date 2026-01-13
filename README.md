@@ -352,7 +352,7 @@ npm run dev
 - Responsive design tested on multiple screen sizes -->
 
 
-<!-- ## Challenges Faced and Solutions
+## Challenges Faced and Solutions
 ### Challenge 1: Complex Order Management
 - Problem: Managing relationships between orders, order items, and menu items
 - Solution: Implemented proper Eloquent relationships and created pivot tables for many-to-many relationships
@@ -364,13 +364,12 @@ npm run dev
 - Solution: Implemented middleware to check user roles and redirect appropriately
 
 ## Future Enhancements
-### Phase 2 Features (Potential Improvements)
-- **Real-time Notifications**: Push notifications for order updates
-- **Payment Integration**: Stripe or PayPal payment processing
-- **GPS Tracking** : Real-time delivery tracking with maps
-- **Rating System** : Customer reviews and restaurant ratings
-- **Advanced Analytics** : Detailed sales reports and customer insights
-- **Mobile App** : Native mobile application for iOS and Android
+- **Real-time Notifications** : Instant alerts for task updates and announcements
+- **File Version Control** : Track changes and revisions in shared resources
+- **User Activity Logs** : Monitor user actions for better accountability
+- **Advanced Reporting** : Project progress reports and performance analytics
+- **Calendar Integration** : Task deadlines synced with calendar systems
+- **Mobile Application** : Dedicated mobile app for easier access and collaboration
 
 ### Scalability Considerations
 
@@ -391,34 +390,34 @@ npm run dev
 
 ### Soft Skills Developed
 
-<!-- - **Team Collaboration** : Working effectively in a group environment
+- **Team Collaboration** : Working effectively in a group environment
 - **Project Management** : Planning and executing a complex web application
 - **Problem Solving** : Debugging and resolving technical challenges
-- **Documentation** : Creating comprehensive project documentation -->
+- **Documentation** : Creating comprehensive project documentation 
 
 
 ## References
 
-<!-- 1. Laravel Documentation. (2024). Laravel 10.x Documentation. Retrieved from https://laravel.com/docs/10.x
-2. Bootstrap Documentation. (2024). Bootstrap 5.3 Documentation. Retrieved from https://getbootstrap.com/docs/5.3/
-3. MySQL Documentation. (2024). MySQL 8.0 Reference Manual. Retrieved from https://dev.mysql.com/doc/refman/8.0/en/
-4. MDN Web Docs. (2024). Web Development Resources. Retrieved from https://developer.mozilla.org/
-5. Stack Overflow. (2024). Programming Q&A Platform. Retrieved from https://stackoverflow.com/ -->
+1. Kendall, K. E., & Kendall, J. E. (2019). Systems Analysis and Design (10th ed.). Pearson Education.
+2. Connolly, T., & Begg, C. (2015). Database Systems: A Practical Approach to Design, Implementation, and Management (6th ed.). Pearson Education.
+3. Sommerville, I. (2016). Software Engineering (10th ed.). Pearson Education.
+4. W3Schools. (2024). Web Development Tutorials. Retrieved from https://www.w3schools.com
+5. Lucid Software. (2024). Entity Relationship Diagram (ERD) Guide. Retrieved from https://www.lucidchart.com
 
 
 ## Conclusion
-<!-- QuickPlate successfully demonstrates the implementation of a comprehensive food ordering system using Laravel framework. The project showcases proficiency in web development fundamentals including MVC architecture, database design, user authentication, and responsive web design. -->
+In conclusion, the KerjaMudah project provides an effective solution for managing projects and team collaboration in a centralized platform. The system design successfully addresses common challenges such as task coordination, communication, and resource sharing by integrating all essential features into one system. Through careful planning and structured database design, the project demonstrates a strong understanding of system analysis principles and serves as a solid foundation for future system development and improvements.
 
 ### Key Achievements
 
-<!-- - Successfully implemented all required Laravel components (Routes, Controllers, Views, Models)
-- Created a functional food ordering system with user role management
-- Developed a responsive, user-friendly interface
-- Demonstrated understanding of database relationships and CRUD operations
-- Applied security best practices for user authentication -->
-
+- Successfully designed a centralized project management system that integrates tasks, resources, discussions, and announcements.
+- Developed a clear and structured ERD with well-defined relationships between User, Project, Task, Resource, Discussion, and Announcement entities.
+- Ensured proper task assignment and project ownership to improve accountability and workflow management.
+- Designed features that support effective team communication through discussions and announcements within each project.
+- Enhanced understanding of system analysis, database design, and teamwork throughout the project development process.
+  
 ### Project Impact
-<!-- This project provides practical experience in building real-world web applications and demonstrates the ability to work collaboratively in a team environment. The skills gained through this project are directly applicable to professional web development scenarios. -->
+This project provides practical experience in building real-world web applications and demonstrates the ability to work collaboratively in a team environment. The skills gained through this project are directly applicable to professional web development scenarios. 
 
 - Project Completion Date: 11/6/2025
 - Course: INFO 3305 Web Application Development
