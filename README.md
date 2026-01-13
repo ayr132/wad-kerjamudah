@@ -99,10 +99,86 @@ Core Tables:
 
 Key Relationships:
 
-<!-- - Users can have multiple Orders (One-to-Many)
-- Restaurants can have multiple Menu Items (One-to-Many)
-- Orders can have multiple Order Items (One-to-Many)
-- Menu Items belong to Categories (Many-to-One) -->
+1. User ↔ Project
+Relationship: One-to-Many
+Primary Key (PK):
+User.user_id
+Foreign Key (FK):
+Project.owner_id → references User.user_id
+Explanation:
+One user can create/own many projects, but each project is owned by only one user.
+
+2. Project ↔ Task
+Relationship: One-to-Many
+Primary Key (PK):
+Project.project_id
+Foreign Key (FK):
+Task.project_id → references Project.project_id
+Explanation:
+A project can have many tasks, but each task belongs to only one project.
+
+3. User ↔ Task
+Relationship: One-to-Many
+Primary Key (PK):
+User.user_id
+Foreign Key (FK):
+Task.assigned_to → references User.user_id
+Explanation:
+One user can be assigned many tasks, but each task is assigned to only one user.
+
+4. Project ↔ Resource
+Relationship: One-to-Many
+Primary Key (PK):
+Project.project_id
+Foreign Key (FK):
+Resource.project_id → references Project.project_id
+Explanation:
+A project can have many resources (files), but each resource belongs to one project.
+
+5. User ↔ Resource
+Relationship: One-to-Many
+Primary Key (PK):
+User.user_id
+Foreign Key (FK):
+Resource.uploadedBy → references User.user_id
+Explanation:
+A user can upload many resources, but each resource is uploaded by one user.
+
+6. User ↔ Discussion
+Relationship: One-to-Many
+Primary Key (PK):
+User.user_id
+Foreign Key (FK):
+Discussion.user_id → references User.user_id
+Explanation:
+A user can post many discussions, but each discussion is posted by one user.
+
+7. Project ↔ Discussion
+Relationship: One-to-Many
+Primary Key (PK):
+Project.project_id
+Foreign Key (FK):
+Discussion.project_id → references Project.project_id
+Explanation:
+A project can have many discussion messages, but each discussion belongs to one project.
+
+8. User ↔ Announcement
+Relationship: One-to-Many
+Primary Key (PK):
+User.user_id
+Foreign Key (FK):
+Announcement.user_id → references User.user_id
+Explanation:
+A user can create many announcements, but each announcement is created by one user.
+
+9. Project ↔ Announcement
+Relationship: One-to-Many
+Primary Key (PK):
+Project.project_id
+Foreign Key (FK):
+Announcement.project_id → references Project.project_id
+Explanation:
+A project can have many announcements, but each announcement belongs to one project.
 
 ** Laravel Components Implementation**
 
