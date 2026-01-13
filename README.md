@@ -39,6 +39,17 @@ The primary objective of KerjaMudah is to deliver a centralized collaboration pl
 
 ## Target Users
 
+KerjaMudah is designed to serve a wide range of users who require effective collaboration and project management in a digital environment. The primary target users include:
+
+Small and Medium Enterprises (SMEs)
+SMEs that manage multiple projects and teams can use KerjaMudah to coordinate tasks, track progress, and improve internal communication without relying on multiple disconnected tools.
+
+Educational Institutions
+Lecturers, students, and academic project teams can utilize KerjaMudah to manage group assignments, share learning resources, discuss project requirements, and monitor task completion efficiently.
+
+Corporate Project Teams
+Organizations with cross-functional teams can use the platform to assign responsibilities, manage deadlines, and ensure transparency across departments.
+
 
 ## Features and Functionalities
 
