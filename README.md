@@ -208,7 +208,7 @@ class Order extends Model {
 1. Clone the Repository
 
 bash/n
-git clone https://github.com/[your-username]/QuickPlate.git/n
+git clone https://github.com/ayr132/wad-kerjamudah.git/n
 cd QuickPlate
 
 2. Install Dependencies
