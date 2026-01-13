@@ -90,7 +90,12 @@ Core Tables:
 
 ### Entity Relationship Diagram (ERD)
 
-link
+<p align="center">
+  <a href="public/assets/images/erdkerjamudah.png" target="_blank">
+    <img src="public/assets/images/erdkerjamudah.png" width="800" alt="KerjaMudah ERD">
+  </a>
+</p>
+
 
 Key Relationships:
 
