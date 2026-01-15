@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Discussion;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DiscussionController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $discussions = Discussion::with(['user', 'project'])
             ->latest()
             ->get();
-        
+
         return view('discussions.index', compact('discussions'));
     }
 

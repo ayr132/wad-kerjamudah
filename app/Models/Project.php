@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['title', 'description', 'owner_id', 'status'];
+    use HasFactory;
+    protected $fillable = ['title', 'description', 'owner_id', 'status', 'created_at', 'updated_at'];
 
     public function owner()
     {

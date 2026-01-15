@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class TaskController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $tasks = auth()->user()->tasks()
             ->orderBy('position')
             ->get()
             ->groupBy('status');
-        
+
         return view('tasks.index', compact('tasks'));
     }
 

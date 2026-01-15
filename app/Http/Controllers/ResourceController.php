@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ResourceController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $resources = Resource::with('user')->latest()->get();
@@ -46,7 +48,7 @@ class ResourceController extends Controller
     public function destroy(Resource $resource)
     {
         $this->authorize('delete', $resource);
-        
+
         Storage::disk('public')->delete($resource->file_path);
         $resource->delete();
 

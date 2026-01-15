@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ProjectController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $projects = auth()->user()->projects()
             ->with('owner')
             ->get();
-        
+
         return view('projects.index', compact('projects'));
     }
 
