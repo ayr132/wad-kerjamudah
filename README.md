@@ -341,24 +341,22 @@ git clone https://github.com/ayr132/wad-kerjamudah.git/n
 
 2. Install Dependencies
 
-bashcomposer install
-npm install
+bash/n
+composer global require laravel/installer/n
+npm install/n
+npm run dev
 
-3. Environment Configuration
 
-bashcp .env.example .env
-php artisan key:generate
+3. Database Setup
 
-4. Database Setup
-
-bash# Configure database in .env file
-php artisan migrate
+bash# Configure database in .env file/n
+php artisan migrate/n
 php artisan db:seed
 
-5. Start Development Server
+4. Start Development Server
 
-bashphp artisan serve
-npm run dev
+bash/n
+php artisan serve
 
 
 
