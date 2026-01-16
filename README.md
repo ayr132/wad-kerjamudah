@@ -338,7 +338,6 @@ Authentication middleware is used to restrict access to protected routes, ensuri
 
 bash/n
 git clone https://github.com/ayr132/wad-kerjamudah.git/n
-cd QuickPlate
 
 2. Install Dependencies
 
