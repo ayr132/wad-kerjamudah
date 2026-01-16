@@ -66,7 +66,6 @@ Organizations with cross-functional teams can use the platform to assign respons
 
 ## Technical Implementation
 
-** Technology Stack**
 
 - Backend Framework: Laravel 10.x
 - Frontend: Blade Templates with Bootstrap 5
@@ -75,18 +74,6 @@ Organizations with cross-functional teams can use the platform to assign respons
 - Image Storage: Laravel File Storage
 - Development Environment: XAMPP
 
-** Database Design**
-
-<!-- Database Schema Overview
-Our database consists of [X] main tables designed to handle users, restaurants, menus, orders, and related data:
-Core Tables:
-
-- users - Customer and restaurant owner accounts
-- restaurants - Restaurant information and details
-- menu_items - Food items with pricing and descriptions
-- orders - Customer order records
-- order_items - Individual items within each order
-- categories - Food categories for menu organization -->
 
 ### Entity Relationship Diagram (ERD)
 
@@ -184,27 +171,34 @@ A project can have many announcements, but each announcement belongs to one proj
 
 - Routes (Web.php)
   
-<!-- php
-`// Authentication Routes`
+// Authentication Routes
 Auth::routes();
 
-`// Public Routes`
+// Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
-Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
-`// Customer Protected Routes`
-Route::middleware(['auth', 'customer'])->group(function () {
-    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
-    Route::resource('orders', OrderController::class);
-    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+// Authenticated User Routes
+Route::middleware(['auth'])->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Project Management
+    Route::resource('projects', ProjectController::class);
+
+    // Task Management
+    Route::resource('tasks', TaskController::class);
+
+    // File & Resource Management
+    Route::resource('resources', ResourceController::class);
+
+    // Team Collaboration
+    Route::post('/projects/{project}/members', [ProjectMemberController::class, 'store'])
+        ->name('projects.members.add');
 });
 
-`// Restaurant Owner Protected Routes`
-Route::middleware(['auth', 'restaurant'])->group(function () {
-    Route::get('/restaurant/dashboard', [RestaurantOwnerController::class, 'dashboard'])->name('restaurant.dashboard');
-    Route::resource('menu-items', MenuItemController::class);
-}); -->
 
 - Controllers
   
@@ -220,71 +214,105 @@ Route::middleware(['auth', 'restaurant'])->group(function () {
 
 - Models and Relationships
   
-<!-- php// User Model
+// User Model
 class User extends Authenticatable {
-    public function orders() {
-        return $this->hasMany(Order::class);
+    public function projects() {
+        return $this->hasMany(Project::class);
     }
-    
-    public function restaurant() {
-        return $this->hasOne(Restaurant::class);
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
     }
 }
 
-// Restaurant Model  
-class Restaurant extends Model {
+// Project Model
+class Project extends Model {
     public function user() {
         return $this->belongsTo(User::class);
     }
-    
-    public function menuItems() {
-        return $this->hasMany(MenuItem::class);
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
+    }
+
+    public function resources() {
+        return $this->hasMany(Resource::class);
     }
 }
 
-// Order Model
-class Order extends Model {
+// Task Model
+class Task extends Model {
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
+
     public function user() {
         return $this->belongsTo(User::class);
     }
-    
-    public function orderItems() {
-        return $this->hasMany(OrderItem::class);
-    }
-} -->
+}
+
 
 - Views and User Interface
 
-  <!-- *Blade Templates Structure:*
-  - layouts/app.blade.php - Main application layout
-  - home.blade.php - Homepage with restaurant listings
-  - restaurants/index.blade.php - Restaurant browsing page
-  - restaurants/show.blade.php - Individual restaurant menu
-  - orders/create.blade.php - Order placement form
-  - dashboard/customer.blade.php - Customer dashboard
-  - dashboard/restaurant.blade.php - Restaurant owner dashboard
+ Views and User Interface
 
-   *Design Features:*
-   - Responsive Design: Bootstrap 5 for mobile-first approach
-   - Color Scheme: Modern orange and white theme representing food industry
-   - Navigation: Intuitive menu structure with user role-based options
-   - Interactive Elements: Dynamic cart updates, real-time order tracking -->
+Blade Templates Structure:
+
+layouts/app.blade.php – Main application layout
+
+home.blade.php – Landing page introducing KerjaMudah
+
+dashboard/index.blade.php – User dashboard with project overview
+
+projects/index.blade.php – Project listing page
+
+projects/show.blade.php – Individual project details and tasks
+
+tasks/create.blade.php – Task creation form
+
+resources/index.blade.php – Shared project resources page
+
+   *Design Features:
+
+Responsive Design: Bootstrap framework for mobile-friendly layout
+
+User Interface: Clean and minimal design focused on productivity
+
+Navigation: Role-based and project-based navigation structure
+
+Collaboration Features: Task tracking, shared resources, and team member management
 
 
 ## User Authentication System
 
 ### ** Authentication Features**
-<!-- - **Registration System**: Email validation, password confirmation, role selection
-- **Login System**: Secure authentication with "Remember Me" option
-- **Password Reset**: Email-based password recovery system
-- **Role-Based Access**: Different dashboards for customers and restaurant owners as admin
-- **Profile Management**: Users can update their information and preferences
+-User Registration:
+New users can register by providing basic information such as name, email, and password. Laravel’s built-in authentication system is used to handle user registration and validation.
+
+-Login System:
+Registered users can securely log in to the system using their email and password. The authentication mechanism ensures only valid users can access the platform features.
+
+-Password Reset:
+KerjaMudah implements Laravel’s default password recovery functionality, allowing users to reset their password via an email-based reset link.
+
+-Role-Based Access Control:
+Authenticated users are granted access to system features based on their role. Each user has access to a personalized dashboard that displays relevant projects, tasks, and resources.
+
+-Session Management:
+User sessions are managed securely to maintain authentication state throughout the application usage.
 
 ### **Security Measures**
-- Password encryption using Laravel's built-in hashing
-- CSRF protection on all forms
-- Input validation and sanitization
-- Middleware protection for authenticated routes -->
+-Password Hashing:
+User passwords are securely encrypted using Laravel’s built-in hashing mechanism to prevent plaintext password storage.
+
+-CSRF Protection:
+All forms are protected using Laravel’s Cross-Site Request Forgery (CSRF) tokens to prevent unauthorized form submissions.
+
+-Input Validation:
+Server-side validation is applied to user inputs during registration, login, and form submissions to ensure data integrity.
+
+-Middleware Protection:
+Authentication middleware is used to restrict access to protected routes, ensuring only authenticated users can access dashboards, project management, and task-related features.
 
 
 ## Installation and Setup Instructions
@@ -324,52 +352,34 @@ php artisan db:seed
 bashphp artisan serve
 npm run dev
 
-## Testing and Quality Assurance
-
-###  Functionality Testing
-
- <!-- - User registration and login system
- - Restaurant browsing and menu display
- - Shopping cart add/remove functionality
- - Order placement and confirmation
- - Order status tracking
- - Restaurant owner menu management
- - Admin user management
- - Responsive design across devices -->
-
-### Browser Compatibility
-
-<!-- -  Google Chrome (Latest)
--  Mozilla Firefox (Latest)
--  Safari (Latest)
--  Microsoft Edge (Latest) -->
-
-### Performance Testing
-
-<!-- - Page load times under 3 seconds
-- Database queries optimized
-- Image compression implemented
-- Responsive design tested on multiple screen sizes -->
 
 
 ## Challenges Faced and Solutions
-### Challenge 1: Complex Order Management
-- Problem: Managing relationships between orders, order items, and menu items
-- Solution: Implemented proper Eloquent relationships and created pivot tables for many-to-many relationships
-### Challenge 2: Real-time Order Tracking
-- Problem: Updating order status in real-time without page refresh
-- Solution: Used AJAX calls to update order status dynamically
-### Challenge 3: Role-based Authentication
-- Problem: Different user types requiring different access levels
-- Solution: Implemented middleware to check user roles and redirect appropriately
+### Challenge 1: Project and Task Relationship Management
+Problem:Managing the relationships between users, projects, tasks, and shared resources became complex, especially when displaying project progress and task ownership accurately.
+Solution:Proper Eloquent relationships were implemented using hasMany and belongsTo associations. This structured approach simplified data retrieval and ensured consistency across project and task management features.
+
+### Challenge 2: Dynamic Task Status Updates
+Problem:Updating task statuses (e.g., pending, in progress, completed) dynamically without requiring users to reload the page.
+Solution:AJAX-based requests were implemented to update task status asynchronously, allowing real-time interaction and improving user experience.
+
+### Challenge 3: Role-Based System Access
+Problem: Ensuring that only authenticated users could access project management features while maintaining appropriate access control within the system.
+Solution:Laravel middleware was used to protect routes and restrict access to authenticated users only. This ensured that sensitive features such as project creation, task assignment, and resource management were securely controlled.
 
 ## Future Enhancements
-- **Real-time Notifications** : Instant alerts for task updates and announcements
-- **File Version Control** : Track changes and revisions in shared resources
-- **User Activity Logs** : Monitor user actions for better accountability
-- **Advanced Reporting** : Project progress reports and performance analytics
-- **Calendar Integration** : Task deadlines synced with calendar systems
-- **Mobile Application** : Dedicated mobile app for easier access and collaboration
+### Real-time Notifications
+Instant notifications for task updates, project changes, and announcements to improve team communication.
+### File Version Control
+Ability to track file changes, manage revisions, and restore previous versions of shared resources.
+### User Activity Logs
+Logging of user actions such as task updates, project edits, and file uploads for better accountability.
+### Advanced Reporting
+Generation of project progress reports, task completion statistics, and performance analytics.
+### Calendar Integration
+Synchronization of task deadlines and project milestones with calendar systems.
+### Mobile Application
+Development of a dedicated mobile application for easier access and collaboration on the go.
 
 ### Scalability Considerations
 
@@ -398,11 +408,12 @@ npm run dev
 
 ## References
 
-1. Kendall, K. E., & Kendall, J. E. (2019). Systems Analysis and Design (10th ed.). Pearson Education.
-2. Connolly, T., & Begg, C. (2015). Database Systems: A Practical Approach to Design, Implementation, and Management (6th ed.). Pearson Education.
-3. Sommerville, I. (2016). Software Engineering (10th ed.). Pearson Education.
-4. W3Schools. (2024). Web Development Tutorials. Retrieved from https://www.w3schools.com
-5. Lucid Software. (2024). Entity Relationship Diagram (ERD) Guide. Retrieved from https://www.lucidchart.com
+1.Kendall, K. E., & Kendall, J. E. (2019). Systems Analysis and Design (10th ed.). Pearson Education.
+2.Connolly, T., & Begg, C. (2015). Database Systems: A Practical Approach to Design, Implementation, and Management (6th ed.). Pearson Education.
+3.Sommerville, I. (2016). Software Engineering (10th ed.). Pearson Education.
+4.Laravel. (2024). Laravel Documentation. Retrieved from https://laravel.com/docs
+5.W3Schools. (2024). Web Development Tutorials. Retrieved from https://www.w3schools.com
+6.Lucid Software. (2024). Entity Relationship Diagram (ERD) Guide. Retrieved from https://www.lucidchart.com/pages/er-diagrams
 
 
 ## Conclusion
