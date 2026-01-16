@@ -202,16 +202,25 @@ Route::middleware(['auth'])->group(function () {
 
 - Controllers
   
-  <!-- *Main Controllers Implemented are below :*
+ Main Controllers Implemented:
 
-  1. HomeController: Handles homepage display and restaurant listings
-  2. RestaurantController: Manages restaurant information and menu display
-  3. OrderController: Processes order creation, tracking, and management
-  4. MenuItemController: Handles CRUD operations for menu items
-  5. CartController: Manages shopping cart functionality
-  6. CustomerController: Customer dashboard and profile management
-  7. RestaurantOwnerController: Restaurant owner dashboard and analytics -->
+HomeController
+Handles homepage display and introduction to the KerjaMudah platform.
 
+DashboardController
+Displays user-specific dashboards with project summaries and task progress.
+
+ProjectController
+Manages project creation, viewing, updating, and deletion.
+
+TaskController
+Handles task assignment, status updates, and task tracking within projects.
+
+ResourceController
+Manages file uploads and shared resources related to projects.
+
+ProjectMemberController
+Handles adding and managing team members within a project.
 - Models and Relationships
   
 // User Model
