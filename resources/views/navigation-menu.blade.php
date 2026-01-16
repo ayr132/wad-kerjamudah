@@ -6,12 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <div class="flex items-center">
-                            <span class="text-2xl font-bold">
-                                <span class="text-gray-900">Kerja</span>
-                                <span class="text-blue-600">Mudah</span>
-                            </span>
-                        </div>
+                        <img src="/assets/images/logo km.png" alt="Logo" class="h-8 w-auto">
                     </a>
                 </div>
 
